@@ -1,6 +1,11 @@
 # OAuthB 2.0
 - ## Setup
   ```shell
+  # ganache setup
+  cd ganache
+  npm install
+
+
   # setup virtual env
   python -m venv env
   
