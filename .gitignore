@@ -1,0 +1,10 @@
+OAuthB/__pycache__/
+.env
+*.swp
+OAuthB/.history
+OAuthB/.hypothesis/
+OAuthB/build/
+OAuthB/reports/
+OAuthB/scripts/__pycache__/
+ganache/node_modules/
+env/

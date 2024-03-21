@@ -1,0 +1,14 @@
+{
+  "name": "ganache",
+  "version": "1.0.0",
+  "description": "this vietual block chain for testing purposes",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ganache": "ganache --wallet.seed myCustomSeed"
+  },
+  "author": "R Ansh Joseph",
+  "license": "MIT",
+  "dependencies": {
+    "ganache": "^7.9.2"
+  }
+}
