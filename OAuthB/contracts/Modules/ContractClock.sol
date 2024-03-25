@@ -22,7 +22,7 @@ contract ContractClock{
         
     }
     function is_valid(uint16 ref_time) public returns(bool){
-        int16 delta = ref_time - system_clock;
+        int16 delta = int16(ref_time - system_clock);
         if(delta > 0) return true;
         else return false;
     }

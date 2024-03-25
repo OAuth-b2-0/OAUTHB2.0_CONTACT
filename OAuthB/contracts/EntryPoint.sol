@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.6.12 <0.9.0;
 
-import "./utils/packet/Packets.sol";
+
 import "./Modules/ControlSystem.sol";
 import "./utils/EventManager.sol";
+
 
 
 contract EntryPoint{
@@ -25,12 +26,15 @@ contract EntryPoint{
         key = _key;
         sbox = _sbox;
         Owner = msg.sender;
+        control_system.set_owner(Owner);
     }
     
+    function client_communication(uint8[17] memory payload) external returns(uint8[17] memory){
+        return control_system.control_system_client(payload);
+    }
+
     function user_communication(uint8[17] memory payload) external returns(uint8[17] memory){
-        
-        Packets packet = new Packets();
-        return packet.dumy();
+        return control_system.control_system_user(msg.sender, payload);
     }
 
 }

@@ -23,13 +23,13 @@ contract Packets{
         return packet;
     }
     //// Client ID
-    function  user_genrate_send_client_id(uint16 _client_id) public returns(uint8[17]){
+    function  user_genrate_send_client_id(uint16 _client_id) public returns(uint8[17] memory){
         packet[0] = 3;
         packet[15] = uint8((_client_id >> 8) & (2**8 - 1));
         packet[16] = uint8(_client_id & (2**8 - 1));
         return packet;
     }
-    function  user_genrate_send_client_id_error() public returns(uint8[17]){
+    function  user_genrate_send_client_id_error() public returns(uint8[17] memory){
         packet[0] = 3;
         return packet;
     }
@@ -87,6 +87,9 @@ contract Packets{
         packet[0] = 7;
         return packet;
     }
+
+
+    
     // SMAPLE OUT
     function dumy() public returns(uint8[17] memory){
         return packet;
