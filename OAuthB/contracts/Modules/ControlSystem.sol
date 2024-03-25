@@ -2,10 +2,12 @@
 pragma solidity >=0.6.12 <0.9.0;
 
 import "../utils/packet/Packets.sol";
+import "./ContractClock.sol";
 
 
 contract ControlSystem{
     address private Owner;
+    ContractClock private clock = new ContractClock();
     function set_owner(address _owner) public {
         Owner = _owner;
     }

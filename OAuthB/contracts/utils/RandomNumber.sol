@@ -2,6 +2,7 @@
 pragma solidity >=0.6.12 <0.9.0;
 contract RandomNumber {
   uint randNo = 0;
+  //256
    function setNumber() public {
         randNo= uint (keccak256(abi.encodePacked (msg.sender, block.timestamp, randNo)));
      }

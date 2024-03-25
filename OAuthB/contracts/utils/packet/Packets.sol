@@ -71,6 +71,7 @@ contract Packets{
 
 
     // CLIENT SERVER MESSAGE
+    //TODO: missing value to fill
     //// No response
     function client_no_response() public returns(uint8[17] memory){
         packet[0] = 0;

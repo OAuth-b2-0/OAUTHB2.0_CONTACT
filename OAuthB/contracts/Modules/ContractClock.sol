@@ -21,6 +21,12 @@ contract ContractClock{
         }
         
     }
+    function get_system_clock() public view returns(uint16){
+        return system_clock;
+    }
+    function get_system_state() public view returns(uint16){
+        return system_state;
+    }
     function is_valid(uint16 ref_time) public returns(bool){
         int16 delta = int16(ref_time - system_clock);
         if(delta > 0) return true;

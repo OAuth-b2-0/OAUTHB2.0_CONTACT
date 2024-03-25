@@ -16,4 +16,4 @@ def main():
         "gas_price": gas_strategy
     })
 
-    print(contract.communication_chanel_client(sbox))
+    val = contract.client_communication(sbox)

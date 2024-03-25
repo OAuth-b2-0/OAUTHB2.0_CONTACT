@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.6.12 <0.9.0;
 
-
+import "./Modules/ContractClock.sol";
 import "./Modules/ControlSystem.sol";
 import "./utils/EventManager.sol";
 
@@ -20,6 +20,9 @@ contract EntryPoint{
     
     // telemetry events for contract
     EventManager private event_manager = new EventManager(Debug);
+
+    // contract clock
+    ContractClock private clock = new ContractClock();
 
     constructor(uint32 _secret,uint128 _key,uint8[17] memory _sbox) public {
         secret = _secret;
