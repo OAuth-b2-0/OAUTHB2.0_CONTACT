@@ -1,2 +1,23 @@
-Module Name,Description,Important conf values
-UserDataStorage,This module located on path ‘OauthB/contracts/Modules/UserControls/UserDataStorage.sol’ this module responsible for data storage and retrieve  ,"1. permission conf maintained in token mapping          0x1 (for add value)                                                0x2 (for updating value)                                         0x3 (for view)                                                       0x4 (for view aviable value in data store)                format :- [16 bit token, 8bit access val, opcode ]"
+Index,Communication Channel,Opcode,Type,Description,Packet function,group,Progress,Sample
+1,user,0x01,request,login to the contract,,User login,✅,"[0x01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]"
+2,user,0x02,response,login successful and send token,user_login_send_access_token(uint16 token),,,
+3,user,0x03,response,login unsuccessful ,user_login_fail(),,,
+4,user,0x04,request,logout to the contract and send login token,,,,"[0x04,0,0,0,0,0,0,0,0,0,0,0,0,0,0,165,84]"
+5,user,0x05,response,logout successful,user_logout_successful(),,,
+6,user,0x06,response,logout fail,user_logout_fail(),,,
+,,,,,,,,
+7,user,0x07,request,get data add token,,Data Store Management,✅,"[0x07,0,0,0,0,0,0,0,0,0,0,0,0,0,0,165,84]"
+6,user,0x08,response,send data add token,user_data_add_token(uint16 token),,,
+8,user,0x09,response,fail to send data add token,user_data_add_token_fail(),,,
+9,user,0x0A,request,get data update token,,,,"[0x0A,0,0,0,0,0,0,0,0,0,0,0,0,idx,idx,165,84]"
+10,user,0x0B,response,send data update token,user_data_update_token(uint16 token),,,
+11,user,0x0C,response,fail to send data update token,user_data_update_token_fail(),,,
+12,user,0x0D,response,data manipulation operation (ADD) done,user_data_manipulation_add_done(),,,
+13,user,0x0E,response,data manipulation operation (UPDATE) done,user_data_manipulation_update_done(),,,
+14,user,0x0F,response,data manipulation operation fails,user_data_manipulation_fail(),,,
+15,user,0x10,request,get data view token,,,,"[0x10,0,0,0,0,0,0,0,0,0,0,0,0,idx,idx,165,84]"
+16,user,0x11,response,send data view token ,user_data_view_token(uint16 token),,,
+17,user,0x12,response,send data view token error,user_data_view_token_error(),,,
+18,user,0x13,request,get key value in data store token,,,,"[0x13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,165,84]"
+19,user,0x14,response,send key value in data store token,user_data_key_value_token(uint16 token),,,
+20,user,0x15,response,get key value in data store token error,user_data_key_value_token_error(),,,

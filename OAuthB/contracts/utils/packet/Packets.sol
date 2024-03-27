@@ -59,6 +59,29 @@ contract Packets{
         packet[0] = 15;
         return packet;
     }
+
+
+    function user_data_view_token(uint16 token) public returns(uint8[17] memory){
+        packet[0] = 17;
+        packet[15] = uint8((token >> 8) & (2**8 - 1));
+        packet[16] = uint8(token & (2**8 - 1));
+        return packet;
+    }
+    function user_data_view_token_error() public returns(uint8[17] memory){
+        packet[0] = 18;
+        return packet;
+    }
+
+    function user_data_key_value_token(uint16 token) public returns(uint8[17] memory){
+        packet[0] = 20;
+        packet[15] = uint8((token >> 8) & (2**8 - 1));
+        packet[16] = uint8(token & (2**8 - 1));
+        return packet;
+    }
+    function user_data_key_value_token_error() public returns(uint8[17] memory){
+        packet[0] = 21;
+        return packet;
+    }
     // SMAPLE OUT
     function dumy() public returns(uint8[17] memory){
         return packet;
