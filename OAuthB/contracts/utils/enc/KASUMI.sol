@@ -20,7 +20,7 @@ contract KASUMI{
     }
     function encription(uint8[17] memory payload) public returns(uint8[17] memory){
         
-        uint8[17] memory out = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        uint8[17] memory out = [0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
         for(uint8 i = 1;i <= 16; i++){
             out[i] = key[i-1] ^ payload[i];
         }

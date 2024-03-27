@@ -4,6 +4,8 @@ pragma solidity >=0.6.12 <0.9.0;
 import "./Modules/ContractClock.sol";
 import "./Modules/ControlSystem.sol";
 import "./utils/EventManager.sol";
+import "./utils/packet/Packets.sol";
+import "./utils/enc/KASUMI.sol";
 
 
 
@@ -16,28 +18,36 @@ contract EntryPoint{
     address private Owner;
     
     // control system for program flow management
-    ControlSystem private control_system = new ControlSystem(); 
+    ControlSystem private control_system; 
     
     // telemetry events for contract
     EventManager private event_manager = new EventManager(Debug);
 
-    // contract clock
-    ContractClock private clock = new ContractClock();
+
+
+
+
 
     constructor(uint32 _secret,uint128 _key,uint8[17] memory _sbox) public {
         secret = _secret;
         key = _key;
         sbox = _sbox;
         Owner = msg.sender;
-        control_system.set_owner(Owner);
+        control_system = new ControlSystem(key);
     }
     
-    function client_communication(uint8[17] memory payload) external returns(uint8[17] memory){
-        return control_system.control_system_client(payload);
+    function user_communication(uint8[17] memory payload) external returns(uint8[17] memory){
+        Packets packet = new Packets();
+        if(msg.sender == Owner){
+            return control_system.control_system_user(payload);
+        }
+        else{
+            return packet.user_login_fail();
+        }
     }
 
-    function user_communication(uint8[17] memory payload) external returns(uint8[17] memory){
-        return control_system.control_system_user(msg.sender, payload);
+    function client_communication(uint8[17] memory payload) external returns(uint8[17] memory){
+        return control_system.control_system_client(payload);
     }
 
 }

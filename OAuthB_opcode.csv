@@ -1,4 +1,2 @@
-SNO,Communication Channel,Opcode,Des
-1,client ,0x01,
-2,client ,0x02,
-3,,,
+Module Name,Description,Important conf values
+UserDataStorage,This module located on path ‘OauthB/contracts/Modules/UserControls/UserDataStorage.sol’ this module responsible for data storage and retrieve  ,"1. permission conf maintained in token mapping          0x1 (for add value)                                                0x2 (for updating value)                                         0x3 (for view)                                                       0x4 (for view aviable value in data store)                format :- [16 bit token, 8bit access val, opcode ]"

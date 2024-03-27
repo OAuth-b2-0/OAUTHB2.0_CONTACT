@@ -15,5 +15,13 @@ def main():
         'from':accounts[0],
         "gas_price": gas_strategy
     })
+    payload = [0x01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    value = contract.user_communication(payload)
+    
+    print(value.return_value)
 
-    val = contract.client_communication(sbox)
+    payload2 = list(value.return_value)
+    payload2[0] = 0x04
+    val = contract.user_communication(payload2)
+
+    print(val.return_value)

@@ -9,4 +9,5 @@ OAuthB/contracts/Test.sol
 OAuthB/scripts/test_deploy.py
 OAuthB/scripts/__pycache__/
 ganache/node_modules/
+.~lock.OAuthB_opcode.csv#
 env/
