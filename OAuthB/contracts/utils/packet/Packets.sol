@@ -82,6 +82,35 @@ contract Packets{
         packet[0] = 21;
         return packet;
     }
+
+    function user_client_id_token(uint16 token) public returns(uint8[17] memory){
+        packet[0] = 23;
+        packet[15] = uint8((token >> 8) & (2**8 - 1));
+        packet[16] = uint8(token & (2**8 - 1));
+        return packet;
+    }
+    function user_client_id_token_error() public returns(uint8[17] memory){
+        packet[0] = 24;
+        return packet;
+    }
+
+    function user_permit_client(uint8[17] memory permit) public returns(uint8[17] memory){
+        permit[0] = 26;
+        return permit;
+    }
+    function user_permit_client_error() public returns(uint8[17] memory){
+        packet[0] = 27;
+        return packet;
+    }
+
+    function user_permit_verify_succesful() public returns(uint8[17] memory){
+        packet[0] = 29;
+        return packet;
+    }
+    function user_permit_verify_fail() public returns(uint8[17] memory){
+        packet[0] = 30;
+        return packet;
+    }
     // SMAPLE OUT
     function dumy() public returns(uint8[17] memory){
         return packet;

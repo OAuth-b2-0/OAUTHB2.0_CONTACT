@@ -1,0 +1,111 @@
+Running 'scripts/deploy_EntryPoint.py::main'...
+Transaction sent: 0xbe9b3a70f95c13fbdcb2a19e45f61e429759996c838abd73c63249b246221ce1
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 47
+  EntryPoint.constructor confirmed   Block: 48   Gas used: 5013848 (16.71%)
+  EntryPoint deployed at: 0xE0c504aee4a5B3a7E375da4acFfEa8170BE45a18
+
+Transaction sent: 0x180e8942d4de5820b4e308aa2d74ad52d2e5250b0f6d9f40e7f237087d06f51b
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 48
+  EntryPoint.user_communication confirmed   Block: 49   Gas used: 781654 (2.61%)
+
+(2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 90)
+Transaction sent: 0xc38a07ba36042b27f826b1fedfce2d081c3d58c0a388f996b69ac0a38bcd5367
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 49
+  EntryPoint.user_communication confirmed   Block: 50   Gas used: 699790 (2.33%)
+
+(5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+Interactive mode enabled. Use quit() to close.
+>>> value.return_value
+(2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 90)
+>>> payload = list(value.return_value)
+>>> payload[0] = 7
+>>> v1 = contract.user_communication(payload)
+Transaction sent: 0x657753594d043715078d56fc9cbf5db9b598ba79a87b82b9a92aed7d99af150b
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 50
+  EntryPoint.user_communication confirmed   Block: 51   Gas used: 700616 (2.34%)
+
+>>> v1.return_value
+(9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+>>> payload = [0x01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+>>> value = contract.user_communication(payload)
+Transaction sent: 0x78bcf56c17f024c1754210e4cc6515b651bf07a5f2fa31087285bcf7b8dd1f95
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 51
+  EntryPoint.user_communication confirmed   Block: 52   Gas used: 730953 (2.44%)
+
+>>> payload1 = list(value.return_value)
+>>> payload1[0]= 7
+>>> payload1
+[7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 147, 217]
+>>> v1 = contract.user_communication(payload1)
+Transaction sent: 0x28dd5145594be8e0db6a809e774c0d3739f219d28d10e4fd629fdc97bc933204
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 52
+  EntryPoint.user_communication confirmed   Block: 53   Gas used: 807823 (2.69%)
+
+>>> v1.return_value
+(8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 175, 15)
+>>> hex(175)
+'0xaf'
+>>> hex(15)
+'0xf'
+>>> 0xaf0f
+44815
+>>> val = contract.data_access_point(44815,"ansh","name",True)
+Transaction sent: 0x3e095c69ed359dc278b3b74ec9e75487386d9a191540aa320e96b8e0b9ea1a58
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 53
+  EntryPoint.data_access_point confirmed   Block: 54   Gas used: 216536 (0.72%)
+
+>>> val.return_value
+("ansh")
+>>> payload1
+[7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 147, 217]
+>>> payload1[0] = 0x10
+>>> payload[14] = 0 
+>>> v2 = contract.user_communication(payload1)
+Transaction sent: 0xd94b0396e138bed1c195d79a0652534ff9463cf53da96cc5ec177fad0ddae5e6
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 54
+  EntryPoint.user_communication confirmed   Block: 55   Gas used: 780278 (2.60%)
+
+>>> v2.return_value
+(17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 120, 57)
+>>> 0x11
+17
+>>> hex(120)
+'0x78'
+>>> hex(57)
+'0x39'
+>>> 0x7839
+30777
+>>> val1 = contract.data_access_point(30777,"","",True)
+Transaction sent: 0xf5444a7a262aef123668a2798f17764f61c36eb00aea0484c120f34c8e04503c
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 55
+  EntryPoint.data_access_point confirmed   Block: 56   Gas used: 76280 (0.25%)
+
+>>> val1.return_value
+("ansh")
+>>> payload1
+[16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 147, 217]
+>>> payload1
+[16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 147, 217]
+>>> payload1[0] = 0x13
+>>> v3 = contract.user_communication(payload1)
+Transaction sent: 0x919f94e2c619470cb4d9985b281dc30be73870aebb9a07794499e1353c12c291
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 56
+  EntryPoint.user_communication confirmed   Block: 57   Gas used: 785832 (2.62%)
+
+>>> v3.return_value
+(20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 213, 172)
+>>> hex(213)
+'0xd5'
+>>> hex(172)
+'0xac'
+>>> 0xd5ac
+54700
+>>> val1 = contract.data_access_point(54700,"","",True)
+Transaction sent: 0xa90f78f15f3b1306dcd25d9411e6b7f99bad88839ce1e37e284e1738798ca404
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 57
+  EntryPoint.data_access_point confirmed   Block: 58   Gas used: 72798 (0.24%)
+
+>>> val1.return_value
+("name")
+>>>

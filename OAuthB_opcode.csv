@@ -21,3 +21,13 @@ Index,Communication Channel,Opcode,Type,Description,Packet function,group,Progre
 18,user,0x13,request,get key value in data store token,,,,"[0x13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,165,84]"
 19,user,0x14,response,send key value in data store token,user_data_key_value_token(uint16 token),,,
 20,user,0x15,response,get key value in data store token error,user_data_key_value_token_error(),,,
+,,,,,,,,
+21,user,0x16,request,get client id token(15 bits),,Issues Resolver,,
+22,user,0x17,response,send client id token,,,,
+23,user,0x18,response,send client id token error,,,,
+24,user,0x19,request,permit client(15 bits),,,,
+25,user,0x1A,response,get client permit packets,,,,
+26,user,0x1B,response,get client permit packets error,,,,
+27,user,0x1C,request,send permit verified ,,,,
+28,user,0x1D,response,send permit verified successful,,,,
+29,user,0x1E,response,send permit verified failed,,,,
