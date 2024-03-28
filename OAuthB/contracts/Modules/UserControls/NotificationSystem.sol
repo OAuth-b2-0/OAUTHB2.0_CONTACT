@@ -7,7 +7,7 @@ contract NotificationSystem{
     uint8 [][] messages;
     BitWiseOperation private bitop = new BitWiseOperation();
 
-    function add_message(uint8[] memory message) public returns(bool){
+    function add_message(uint8[17] memory message) public returns(bool){
         messages.push(message);
         return true;
     }

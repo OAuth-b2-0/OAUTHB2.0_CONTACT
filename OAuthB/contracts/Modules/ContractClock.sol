@@ -3,8 +3,8 @@ pragma solidity >=0.6.12 <0.9.0;
 
 
 contract ContractClock{
-    uint16 private system_clock = 0;
-    uint16 private system_state = 0;
+    uint16  system_clock = 0;
+    uint16  system_state = 0;
 
     function tick() public{
         

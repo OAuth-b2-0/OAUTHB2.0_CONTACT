@@ -111,6 +111,32 @@ contract Packets{
         packet[0] = 30;
         return packet;
     }
+
+
+    function client_token_verification_success() public returns(uint8[17] memory){
+        packet[0] = 32;
+        return packet;
+    }
+    function client_token_verification_fail() public returns(uint8[17] memory){
+        packet[0] = 33;
+        return packet;
+    }
+    function client_token_verification_refresh() public returns(uint8[17] memory){
+        packet[0] = 34;
+        return packet;
+    }
+
+
+    function client_send_data_acess_token(uint16 token) public returns(uint8[17] memory){
+        packet[0] = 39;
+        packet[15] = uint8((token >> 8) & (2**8 - 1));
+        packet[16] = uint8(token & (2**8 - 1));
+        return packet;
+    }
+    function client_send_data_acess_token_error() public returns(uint8[17] memory){
+        packet[0] = 40;
+        return packet;
+    }
     // SMAPLE OUT
     function dumy() public returns(uint8[17] memory){
         return packet;

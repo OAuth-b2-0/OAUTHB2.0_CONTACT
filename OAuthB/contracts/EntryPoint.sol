@@ -48,6 +48,9 @@ contract EntryPoint{
     function data_access_point(uint16 token,string memory new_value,string memory new_key,bool aviable) public returns(string[] memory){
         return control_system.DataStore_Token_AccessPoint(token, new_value, new_key, aviable);
     }
+    function notification(uint8[17] memory payload) public returns(uint8[][] memory){
+        return control_system.notification(payload);
+    }
     function client_communication(uint8[17] memory payload) external returns(uint8[17] memory){
         return control_system.control_system_client(payload);
     }

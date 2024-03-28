@@ -9,6 +9,27 @@ contract IssuseResolver{
     NotificationSystem private notification_system = new NotificationSystem();
     uint16[] client_ids;
 
+    uint8 [][] messages;
+
+    function add_permit(uint8[] memory message) public returns(bool){
+        messages.push(message);
+        return true;
+    }
+    function get_permit(uint16 client_id) public returns(uint8[] memory){
+        uint8[] memory temp;
+        for(uint8 i = 0;i < messages.length ; i++){
+            if(bitop.bit8_mearge(messages[i][1],messages[i][0]) == client_id){
+                temp = messages[i];
+                delete messages[i];
+                return temp;
+            }
+        }
+        return temp;
+    }
+
+
+
+
     function genrate_token() internal returns(uint16){
         return uint16(rand.get_random(15));
     }
@@ -37,7 +58,7 @@ contract IssuseResolver{
     function create_premit_request(uint16 token,uint8[] memory permission) public returns(bool){
         if(permission.length <= 8){
             if(is_in(client_ids, token)){
-                uint8[17] memory permit_issed = = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+                uint8[17] memory permit_issed =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
                 // permit format
                 //todo: make <-15-><activation bit>
                 permit_issed[0] = uint8(token >> 8);
@@ -62,7 +83,9 @@ contract IssuseResolver{
 
     function permit_verify(uint8[] memory permit) public returns(bool){
         // todo apply the checks for elemet acess permission
-        uint16 token = bitop.bit8_mearge(permit[1], high[0]);
+        uint16 token = bitop.bit8_mearge(permit[1], permit[0]);
+        add_permit(permit);
+        return notification_system.remove_message(token);
 
     }
 }
