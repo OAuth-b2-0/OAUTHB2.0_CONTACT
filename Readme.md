@@ -103,7 +103,7 @@ Explore our repository to discover innovative solutions for your authentication 
   #install browine
   pip install eth-brownie
   ```
-## Start ganache server (In new terminal)
+### Start ganache server (In new terminal)
   ```shell
   cd ganache
   npm run ganache
@@ -112,12 +112,12 @@ Explore our repository to discover innovative solutions for your authentication 
     - Default port is 8545
     - You can change configration via changing the code in package.json
 
-## Compiling .SOL files
+### Compiling .SOL files
   ``` shell
   cd OAuthB
   brownie compile
   ``` 
-## Deploy contact in CHAIN
+### Deploy contact in CHAIN
   ```shell
   brownie run -i scripts/deploy_Entrypoint.py 
   ```
@@ -132,7 +132,7 @@ We are a team dedicated to revolutionizing authentication and access control wit
 Our repository houses innovative solutions for authentication and access management, built on robust frameworks like OAuth b2.0 and blockchain technology. With our tools, you can enhance security, streamline access control, and foster trust in your digital interactions.
 
 ### NOTE!!
-- ```
+  ```
     All Rights Reserved
 
     Copyright (c) 2024 R Ansh Joseph
@@ -152,9 +152,11 @@ Our repository houses innovative solutions for authentication and access managem
     The above copyright notice and this permission notice shall be included in all copies or substantial portions of the software.
 
 
-    ```
+  ```
 ### Important Point
--   Gas Fee is necessary if not given it not gonna process the block
+   ```
+   Gas Fee is necessary if not given it not gonna process the block
+   ```
 
 ## Thank You for Visiting!
 We appreciate your interest in our repository. Happy coding and stay secure! 🛡️🔒
