@@ -1,0 +1,51 @@
+contract = IssuseResolver.deploy({'from':accounts[0],"gas_price": gas_strategy})
+Transaction sent: 0x7b9faf947a7b51fecf50249116a8541c7086f68b30d008e4603a5d3e78ddb4f6
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 11
+  IssuseResolver.constructor confirmed   Block: 18   Gas used: 1435890 (4.79%)
+  IssuseResolver deployed at: 0x368739590B153f0bE059143F2aD6317ca035BEF1
+
+>>> v1 = contract.make_client_id()
+Transaction sent: 0xe1777382c3cf64c6b6cdaf1e9dd0ed406cb8c0a5c1d61a9ab29449702483477c
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 12
+  IssuseResolver.make_client_id confirmed   Block: 19   Gas used: 94104 (0.31%)
+
+>>> v1.return_value
+4755
+>>> 4755 & (2**8-1)
+147
+>>> 4755 >> 8
+18
+>>> hex(18)
+'0x12'
+>>> hex(147)
+'0x93'
+>>> 0x1293
+4755
+>>> v1 = contract.create_premit_request(0x1293,[12,0])
+Transaction sent: 0x832c653dda31dd89852901b9cee6eabd1878e0595b80d91a3aa6924680a4cf10
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 13
+  IssuseResolver.create_premit_request confirmed   Block: 20   Gas used: 117233 (0.39%)
+
+>>> v1.return_value
+True
+>>> v2 = contract.get_notification()
+Transaction sent: 0xec7f7e45fe2eac6ba2146357ee09873054c2e16845de70b54bb1e5e39d9507dc
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 14
+  IssuseResolver.get_notification confirmed   Block: 21   Gas used: 44916 (0.15%)
+
+>>> v2.return_value
+((18, 147, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0))
+>>> pay = v2.return_value
+>>> v3 = contract.permit_verify(pay[0])
+Transaction sent: 0x6f8ab730e464d13b5e21f111daf804db8367d29ad3f806462bfc8a2c63fb1a10
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 15
+  IssuseResolver.permit_verify confirmed   Block: 22   Gas used: 47044 (0.16%)
+
+>>> v4 = contract.get_notification()
+Transaction sent: 0xc50ad0d55f6b4f8df146bfbce8177dee44231b24aff92b010dbb8b7a30569222
+  Gas price: 60.0 gwei   Gas limit: 30000000   Nonce: 16
+  IssuseResolver.get_notification confirmed   Block: 23   Gas used: 32571 (0.11%)
+
+>>> v4.return_value
+(())
+>>>
