@@ -25,7 +25,7 @@ OAuth b2.0 revolutionizes the landscape of online authorization, addressing the 
 | 14   |                       | COF     | response  | data manipulation operation fails            | user_data_manipulation_fail)            | Data Store Management       |          |
 
 
-## Setup
+## ⚙️ Setup
   ```shell
   # ganache setup
   cd ganache
