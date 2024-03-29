@@ -17,6 +17,8 @@
 - [Note](#note)
 - [Thank You for Visiting!](#thank-you-for-visiting)
 
+## 🔗 Link to Request and Response Structure : [Click Here](https://anshjoseph.github.io/oauthb2.0/)
+
 ## ➡️ Introduction 
 Our goal is to create a secure, decentralized authentication system using the original consortium blockchain. We aim to provide users with greater control over their data and privacy, ensuring that their information is protected and accessible only to authorized parties. By leveraging blockchain technology, we can create a tamper-proof, transparent system that enhances security and trust in online interactions.
 
@@ -84,7 +86,10 @@ The request and response structure of the OAuth b2.0 protocol is shown below:
 - **Client Applications:**  Initiates authentication requests and accesses user resources securely.
 - **Authentication Service:**  Handles user login, token issuance, and verification securely.
 - **Data Store Management:**  Manages storage and retrieval of user data while ensuring privacy and integrity.
-<img src="images/OAuthB2.0WorkingCanva.png" width="400" alt="Architecture Diagram">
+- **Issues Resolver:**  Resolves authentication and access control issues to ensure smooth user experience.
+- **Token Verifier:**  Verifies user authentication tokens and grants access to protected resources.
+
+<img src="images/OAuthB2.0WorkingCanva.png" width="700" alt="Architecture Diagram">
 
 ## ➡️ Get Started
 Explore our repository to discover innovative solutions for your authentication and access control needs. Feel free to contribute, provide feedback, or reach out to us with any questions. Together, let's shape the future of cybersecurity!
@@ -94,11 +99,13 @@ Explore our repository to discover innovative solutions for your authentication 
   # ganache setup
   cd ganache
   npm install
-
+  ```
+  ```shell
   #setup virtual env
   cd ..
   python -m venv env
-  
+  ```
+  ```shell
   #install browine
   pip install eth-brownie
   ```
@@ -122,7 +129,7 @@ Explore our repository to discover innovative solutions for your authentication 
   ```
 
 ## 📸 Screenshots of deployed contract
-  ![image](https://github.com/OAuth-b2-0/OAUTHB2.0_CONTACT/raw/main/Readme%20image%202.png)  
+  <img src="images/Contract_Creation.png" width="800" alt="Contract Working Flow">  
 
 ## 👥 About Us
 We are a team dedicated to revolutionizing authentication and access control with cutting-edge technologies. Our mission is to provide secure, decentralized solutions that empower users and protect their privacy.
@@ -134,7 +141,7 @@ Our repository houses innovative solutions for authentication and access managem
   ```
     All Rights Reserved
 
-    Copyright (c) 2024 R Ansh Joseph
+    Copyright (c) 2024 OAuth b2.0
 
     THE CONTENTS OF THIS PROJECT ARE PROPRIETARY AND CONFIDENTIAL.
     UNAUTHORIZED COPYING, TRANSFERRING OR REPRODUCTION OF THE CONTENTS OF THIS PROJECT, VIA ANY MEDIUM IS STRICTLY PROHIBITED.
