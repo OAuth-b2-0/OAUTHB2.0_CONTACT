@@ -84,8 +84,7 @@ The request and response structure of the OAuth b2.0 protocol is shown below:
 - **Client Applications:**  Initiates authentication requests and accesses user resources securely.
 - **Authentication Service:**  Handles user login, token issuance, and verification securely.
 - **Data Store Management:**  Manages storage and retrieval of user data while ensuring privacy and integrity.
-
-![Architecture Diagram](https://github.com/OAuth-b2-0/OAUTHB2.0_CONTACT/images/OAuthB2.0WorkingCanva.png)
+<img src="images/OAuthB2.0WorkingCanva.png" width="400" alt="Architecture Diagram">
 
 ## ➡️ Get Started
 Explore our repository to discover innovative solutions for your authentication and access control needs. Feel free to contribute, provide feedback, or reach out to us with any questions. Together, let's shape the future of cybersecurity!
