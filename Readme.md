@@ -17,7 +17,7 @@
 - [Note](#note)
 - [Thank You for Visiting!](#thank-you-for-visiting)
 
-## Introduction 
+## ➡️ Introduction 
 Our goal is to create a secure, decentralized authentication system using the original consortium blockchain. We aim to provide users with greater control over their data and privacy, ensuring that their information is protected and accessible only to authorized parties. By leveraging blockchain technology, we can create a tamper-proof, transparent system that enhances security and trust in online interactions.
 
 ## Request and Response Structure 
@@ -70,14 +70,14 @@ The request and response structure of the OAuth b2.0 protocol is shown below:
 | 39    | client                | 0x27   | response | send data token take token give it to data data_access_point |                                   |                                   |          |                                              |
 | 40    | client                | 0x28   | response | send data token error                |                                   |                                   |          |                                              |
 
-## Key Features 
+## 🗒️ Key Features 
 - 🔒 **Secure Authentication:** Protect user credentials and data with advanced security measures.
 - 🔑 **Decentralized Access Control:** Empower users with greater control over their data privacy.
 - 📊 **Immutable Verification:** Ensure tamper-proof verification of user records with blockchain technology.
 - 🕰️ **Transparent Authentication Processes:** Enable secure and reliable credential verification for users.
 - 🔍 **Future-Proof Solutions:** Stay ahead of the curve with forward-thinking approaches to identity management.
 
-## Architecture Diagram
+## ✏️ Architecture Diagram
 - **Blockchain Layer:** Securely stores user credentials and authentication data.
 - **OAuth 2.0 Integration:**  Facilitates secure authorization and access control.
 - **Smart Contracts:**  Manages authentication processes and access control mechanisms.
@@ -85,12 +85,12 @@ The request and response structure of the OAuth b2.0 protocol is shown below:
 - **Authentication Service:**  Handles user login, token issuance, and verification securely.
 - **Data Store Management:**  Manages storage and retrieval of user data while ensuring privacy and integrity.
 
-![image](https://github.com/OAuth-b2-0/OAUTHB2.0_CONTACT/raw/main/Readme%20image.png)
+![Architecture Diagram](https://github.com/OAuth-b2-0/OAUTHB2.0_CONTACT/images/OAuthB2.0WorkingCanva.png)
 
-## Get Started
+## ➡️ Get Started
 Explore our repository to discover innovative solutions for your authentication and access control needs. Feel free to contribute, provide feedback, or reach out to us with any questions. Together, let's shape the future of cybersecurity!
 
-## Setup
+## 🔨 Setup
   ```shell
   # ganache setup
   cd ganache
@@ -122,16 +122,16 @@ Explore our repository to discover innovative solutions for your authentication 
   brownie run -i scripts/deploy_Entrypoint.py 
   ```
 
-## Screenshots of deployed contract
+## 📸 Screenshots of deployed contract
   ![image](https://github.com/OAuth-b2-0/OAUTHB2.0_CONTACT/raw/main/Readme%20image%202.png)  
 
-## About Us
+## 👥 About Us
 We are a team dedicated to revolutionizing authentication and access control with cutting-edge technologies. Our mission is to provide secure, decentralized solutions that empower users and protect their privacy.
 
-## What We Offer
+## 👉 What We Offer
 Our repository houses innovative solutions for authentication and access management, built on robust frameworks like OAuth b2.0 and blockchain technology. With our tools, you can enhance security, streamline access control, and foster trust in your digital interactions.
 
-### NOTE!!
+### 📝 NOTE!!
   ```
     All Rights Reserved
 
@@ -153,10 +153,14 @@ Our repository houses innovative solutions for authentication and access managem
 
 
   ```
-### Important Point
+### 📌 Important Point
    ```
    Gas Fee is necessary if not given it not gonna process the block
    ```
 
-## Thank You for Visiting!
-We appreciate your interest in our repository. Happy coding and stay secure! 🛡️🔒
+## 🤝 Thank You for Visiting!
+We appreciate your interest in our repository. 
+<hr>
+<p align="center">
+Happy coding and stay secure! 🛡️🔒
+</p>
