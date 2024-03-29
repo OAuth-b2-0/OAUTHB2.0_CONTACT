@@ -129,7 +129,7 @@ Explore our repository to discover innovative solutions for your authentication 
   ```
 
 ## 📸 Screenshots of deployed contract
-  <img src="images/Contract_Creation.png" width="800" alt="Contract Working Flow">  
+  <img src="images/ContractCreation.png" width="700" alt="Contract Working Flow">  
 
 ## 👥 About Us
 We are a team dedicated to revolutionizing authentication and access control with cutting-edge technologies. Our mission is to provide secure, decentralized solutions that empower users and protect their privacy.
