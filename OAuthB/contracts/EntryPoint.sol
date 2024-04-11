@@ -54,5 +54,8 @@ contract EntryPoint{
     function client_communication(uint8[17] memory payload) external returns(uint8[17] memory){
         return control_system.control_system_client(payload);
     }
+    function retrive_all() public returns(uint8[][] memory){
+        return control_system.retrive_all1();
+    }
 
 }

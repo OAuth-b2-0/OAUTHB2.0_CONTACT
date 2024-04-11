@@ -8,23 +8,24 @@ contract IssuseResolver{
     BitWiseOperation private bitop = new BitWiseOperation();
     NotificationSystem private notification_system = new NotificationSystem();
     uint16[] client_ids;
+    uint8 [][] public permits;
 
-    uint8 [][] messages;
-
-    function add_permit(uint8[] memory message) public returns(bool){
-        messages.push(message);
+    function add_permit(uint8[17] memory message) public returns(bool){
+        permits.push(message);
         return true;
     }
-    function get_permit(uint16 client_id) public returns(uint8[] memory){
-        uint8[] memory temp;
-        for(uint8 i = 0;i < messages.length ; i++){
-            if(bitop.bit8_mearge(messages[i][1],messages[i][0]) == client_id){
-                temp = messages[i];
-                delete messages[i];
-                return temp;
+    function retrive_all() public returns(uint8[][] memory){
+        // remoe this function
+        return permits;
+    }
+    function get_permit(uint16 client_id) public returns(uint8[17] memory){
+        for(uint8 i = 0;i < permits.length ; i++){
+            if(bitop.bit8_mearge(permits[i][2],permits[i][1]) == client_id){
+                // temp = permits[i];
+                // delete permits[i];
+                return bitop.convert_uint8__to_uint817(permits[i]);
             }
         }
-        return temp;
     }
 
 
@@ -68,7 +69,7 @@ contract IssuseResolver{
                     permit_issed[offset] =  permission[i];
                     offset += 1;
                 }
-                if(notification_system.add_message(permit_issed)){
+                if(notification_system.add_message(bitop.convert_uint178__to_uint8(permit_issed))){
                     return true;
                 }else return false;
             }else return false;
@@ -81,9 +82,9 @@ contract IssuseResolver{
         return notification_system.retrive_notification();
     }
 
-    function permit_verify(uint8[] memory permit) public returns(bool){
+    function permit_verify(uint8[17] memory permit) public returns(bool){
         // todo apply the checks for elemet acess permission
-        uint16 token = bitop.bit8_mearge(permit[1], permit[0]);
+        uint16 token = bitop.bit8_mearge(permit[2], permit[1]);
         add_permit(permit);
         return notification_system.remove_message(token);
 
