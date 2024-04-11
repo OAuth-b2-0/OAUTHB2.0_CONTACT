@@ -137,6 +137,15 @@ contract Packets{
         packet[0] = 40;
         return packet;
     }
+
+    function client_send_token() public returns(uint8[17] memory){
+        packet[0] = 42;
+        return packet;
+    }
+    function client_send_token_error() public returns(uint8[17] memory){
+        packet[0] = 43;
+        return packet;
+    }
     // SMAPLE OUT
     function dumy() public returns(uint8[17] memory){
         return packet;

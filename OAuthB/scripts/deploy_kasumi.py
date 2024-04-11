@@ -5,7 +5,7 @@ from brownie.network.gas.strategies import LinearScalingStrategy
 gas_strategy = LinearScalingStrategy("60 gwei", "70 gwei", 1.1)
 
 gas_price(gas_strategy)
-sbox = [199 ,170, 187, 238, 255, 170, 187, 238, 255, 170, 187, 238, 255, 170, 187, 238, 255]
+sbox = [0, 170, 187, 238, 255, 170, 187, 238, 255, 170, 187, 238, 255, 170, 160, 239, 255]
 key = 0xAABBEEFFAABBEEFFAABBEEFFAABBEEFF
 def deploy():
     contract = KASUMI.deploy(key,{
