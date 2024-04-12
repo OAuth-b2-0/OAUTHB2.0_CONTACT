@@ -163,7 +163,7 @@ contract ControlSystem{
             
             // return kasumi.encription(retd);
         }else if(opcode == 31){
-            payload_temp =  payload;
+            payload_temp =  kasumi.decrypt(payload);
             clock_sys = clock.get_system_clock();
             clock_con = clock.get_system_state();
             emit token_val_ch(payload_temp[1],payload_temp[2]);
@@ -182,7 +182,7 @@ contract ControlSystem{
             payload_temp[12] = uint8(clock_con & (2**8 -1));
             payload_temp[13] = uint8(clock_sys >> 8);
             payload_temp[14] = uint8(clock_sys & (2**8 -1));
-            return payload_temp;
+            return kasumi.encription(payload_temp);
         }else if(opcode == 41){
             // change back to client id
             uint16 client_id_send = bitop.bit8_mearge(payload[2], payload[1]);
@@ -215,40 +215,39 @@ contract ControlSystem{
             ret[13] = uint8(clock_sys >> 8);
             ret[14] = uint8(clock_sys & (2**8 -1));
             ret[16] = 1;
-            return ret;
+            return kasumi.encription(ret);
         }
         else{
-            // payload_temp =  payload;
-            // clock_sys = clock.get_system_clock();
-            // clock_con = clock.get_system_state();
-            // emit token_val_ch(payload_temp[1],payload_temp[2]);
-            // if((clock_con == bitop.bit8_mearge(payload_temp[12], payload_temp[11]))){
-            //     if(clock.is_valid(bitop.bit8_mearge(payload_temp[14], payload_temp[13]))){ 
-            //         uint8 index = opcode >> 4;
-            //         index = index - 3;
-            //         index = payload_temp[index];
-            //         int8 check = int8(index) - 1;
-            //         if(check >= 0){
-            //             client_id = datastorage.add_acess_token(uint8(check), 3);
-            //             return packet.client_send_data_acess_token(client_id);
-            //         }
-            //         return packet.dumy();
-            //     }
-            //     else return packet.client_token_verification_success();
-            // }else return packet.client_token_verification_refresh();
-            uint8 index = opcode >> 4;
-            // index = index - 3;
-            // emit token_val_ch(index,100);
-            index = payload[index];
-            // emit token_val_ch(index,100);
-            index = index - 1;
-            // int8 check = int8(index) - 1;
+            payload_temp =  kasumi.decrypt(payload);
+            clock_sys = clock.get_system_clock();
+            clock_con = clock.get_system_state();
+            emit token_val_ch(payload_temp[1],payload_temp[2]);
+            if((clock_con == bitop.bit8_mearge(payload_temp[12], payload_temp[11]))){
+                if(clock_sys <= (bitop.bit8_mearge(payload_temp[14], payload_temp[13]))){ 
+                    uint8 index = opcode >> 4;
+                    index = payload[index];
+                    index = index - 1;
+                    if(index >= 0){
+                        client_id = datastorage.add_acess_token(index, 3);
+                        emit token_val_ch(index,100);
+                        return packet.client_send_data_acess_token(client_id);
+                    }else return packet.dumy();
+                }
+                else return packet.client_token_verification_success();
+            }else return packet.client_token_verification_refresh();
+            // uint8 index = opcode >> 4;
+            // // index = index - 3;
+            // // emit token_val_ch(index,100);
+            // index = payload[index];
+            // // emit token_val_ch(index,100);
+            // index = index - 1;
+            // // int8 check = int8(index) - 1;
             
-            if(index >= 0){
-                client_id = datastorage.add_acess_token(index, 3);
-                emit token_val_ch(index,100);
-                return packet.client_send_data_acess_token(client_id);
-            }else return packet.dumy();
+            // if(index >= 0){
+            //     client_id = datastorage.add_acess_token(index, 3);
+            //     emit token_val_ch(index,100);
+            //     return packet.client_send_data_acess_token(client_id);
+            // }else return packet.dumy();
         }
     }
     function retrive_all1() public returns(uint8[][] memory){

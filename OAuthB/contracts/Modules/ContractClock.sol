@@ -5,9 +5,10 @@ pragma solidity >=0.6.12 <0.9.0;
 contract ContractClock{
     uint16  system_clock = 0;
     uint16  system_state = 0;
+    event clock_tick(uint16 indexed system_clock,uint16 indexed system_state);
 
     function tick() public{
-        
+        emit clock_tick(system_clock,system_state);
         if (system_clock < (2*16 -1)){
             system_clock += 1;
         }else{

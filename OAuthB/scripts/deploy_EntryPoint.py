@@ -130,9 +130,19 @@ def main():
     print(client_verify_token.return_value)
     print("------------------------------------------------------------")
 
+    
+    # client get refesh token
+    print("client getting refesh token")
+    client_get_token_rf = [0x23] + client_get_token[1:]
+    print(client_get_token_rf)
+    client_get_token_rf = contract.client_communication(client_get_token_rf,{"from":client,"gas_price": gas_strategy})
+    print(client_get_token_rf.events)
+    client_get_token_rf = list(client_get_token_rf.return_value)
+    print(client_get_token_rf) 
+    
     # client fetch data
     print("client featch data")
-    client_data = [0x36] + client_get_token[1:]
+    client_data = [0x36] + client_get_token_rf[1:]
     print(client_data)
     client_data = contract.client_communication(client_data,{"from":client,"gas_price": gas_strategy})
     print(client_data.events)
