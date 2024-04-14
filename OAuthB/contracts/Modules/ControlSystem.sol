@@ -174,7 +174,7 @@ contract ControlSystem{
         }else if(opcode == 35){
             //todo: add error
             // todo enc function
-            payload_temp = payload;
+            payload_temp = kasumi.decrypt(payload);
             clock_sys = clock.get_system_clock();
             clock_con = clock.get_system_state();
             clock_sys = clock_sys + delta;
